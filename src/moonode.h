@@ -33,9 +33,9 @@
 
 #include "ode/ode.h"
 
-#ifndef dDOUBLE
-#error "MoonODE requires double-precision ODE"
-#endif
+//#ifndef dDOUBLE
+//#error "MoonODE requires double-precision ODE"
+//#endif
 
 #define MOONODE_VERSION      "0.1"
 
