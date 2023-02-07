@@ -182,9 +182,14 @@ int luaopen_moonode(lua_State *L)
     moonode_open_datahandling(L);
 
     /* Add functions implemented in Lua */
-    lua_pushvalue(L, -1); lua_setglobal(L, "moonode");
-    if(luaL_dostring(L, "require('moonode.random')") != 0) lua_error(L);
-    lua_pushnil(L);  lua_setglobal(L, "moonode");
+    lua_pushvalue(L, -1);
+    lua_setglobal(L, "moonode");
+    if(luaL_dostring(L, "require('random')") != 0){
+        fprintf(stderr,  "%s", lua_tostring(L, -1));
+        lua_error(L);
+    }
+    lua_pushnil(L);
+    lua_setglobal(L, "moonode");
 
     return 1;
     }
